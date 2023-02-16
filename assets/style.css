@@ -1,0 +1,97 @@
+* {
+    --btnBackground: #5D7383;
+    --btnBackgroundHover: #ABABAB;
+    --mainBackground: #36393F ;
+    --mainTextColor: #ffffff;
+    --secondaryBackground: #202B44;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    position: relative;
+    margin: 0.5rem;
+    min-height: 98vh;
+    background: var(--mainBackground);
+    color: var(--mainTextColor);
+}
+
+
+header {
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header button {
+    background: var(--btnBackground);
+    color: var(--mainTextColor);
+    border: 0;
+    border-radius: 7px; /* round corners */
+    padding: 3px 10px 3px 10px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+main section {
+    justify-content: flex-start; 
+}
+
+h1 {
+    margin: 20px;
+    font-size: 50px;
+    text-align: center;
+}
+
+p {
+    margin: 20px;
+    font-size: 25px;
+    font-weight: lighter;
+    text-align: center;
+}
+
+#startBtn{
+    background: var(--btnBackground);
+    color: var(--mainTextColor);
+    border: none; 
+    border-radius: 5px;
+    font-size: 25px;
+}
+
+#startBtn:hover {
+    background: var(--btnBackgroundHover);
+    cursor: pointer;
+}
+
+
+button {
+    background: var(--btnBackground);
+    color: var(--mainTextColor);
+    border: none; 
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+button:hover {
+    background: var(--btnBackgroundHover);
+    cursor: pointer;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-size: 20px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+
+
+
