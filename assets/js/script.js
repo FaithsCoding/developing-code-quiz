@@ -233,3 +233,56 @@ function locallyStoreData() {
   }
   return;
 }
+
+function showHighscore() {
+  title.style.display = "none";
+  startBtn.style.display = "none";
+  document.querySelector("header").children[0].style.display = "none";
+  document.querySelector("#instructions").style.display = "none";
+  document.querySelector("#submit-highscore").style.display = "none";
+
+  document.querySelector("#display-highscore").style.display = "block";
+
+  orderedTempList = document.querySelector("ol");
+  orderedTempList.innerHTML = "";
+
+  arrayOfObjectstemp = JSON.parse(window.localStorage.getItem(highscore));
+  if (arrayOfObjectstemp != null) {
+    for (let index = 0; index < arrayOfObjectstemp.length; index++) {
+      var newList = document.createElement("li");
+      newList.textContent =
+        arrayOfObjectstemp[index].names +
+        "-" +
+        orderedTempList.appendChild(newList);
+    }
+  } else {
+    var newList = document.createElement("p");
+    newList.textContent = "no highscores";
+    orderedTempList.appendChild(newList);
+  }
+  return;
+}
+
+function removeHighscore() {
+  document.querySelector("ol").innerHTML = "";
+  window.localStorage.clear();
+
+  gameSetUp();
+
+  return;
+}
+
+function init() {
+  startBtn.addEventListener("click", startGame);
+  answerButtonLst.addEventListener("click", checkAnswer);
+  viewHighscoresBtn.addEventListener("click", showHighscore);
+  submitHighscoreBtn.addEventListener("click", locallyStoreData);
+  clearHighscoreBtn.addEventListener("click", removeHighscore);
+  goBackHighscoreBtn.addEventListener("click", gameSetUp);
+
+  gameSetUp();
+
+  return;
+}
+
+init();
