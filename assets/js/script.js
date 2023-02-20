@@ -67,27 +67,28 @@ var questionsObject = [
 ];
 
 function gameSetUp() {
-  timer.textContent = globalTimerPreset;
   timeRemaining = globalTimerPreset;
+  timer.textContent = globalTimerPreset;
 
-  document.querySelector(
-    "#display-highscore-section"
-  ).getElementsByClassName.display = "none";
-  startBtn.style.display = "none";
-  viewHighscoresBtn.style.display = "none";
-  title.style.display = "none";
+  startBtn.style.display = "block";
+  viewHighscoresBtn.style.display = "block";
+  title.style.display = "block";
 
-  document.querySelector("instructions").style.display = "none";
+  title.textContent = "Coding Quiz Challenge";
+
+  document.querySelector("instructions").style.display = "block";
+  document.querySelector("#display-highscore-section").style.display = "none";
 
   return;
 }
 
 function startGame() {
   question = 0; //keeps track of which question number user is on for the question object
+  endGame = false;
 
-  timerP.style.display = "none";
   startBtn.style.display = "none";
   viewHighscoresBtn.style.display = "none";
+  timerP.style.display = "block";
 
   document.querySelector("#instructions").style.display = "none";
 
@@ -96,12 +97,6 @@ function startGame() {
 
   return;
 }
-
-/*function viewQuestions(question) {
-  title.textContent = questionObj.questions[question];
-  createAnswerEle(question);
-
-  return;*/
 
 function startTimer() {
   var timerGap = setGap(function () {
@@ -118,6 +113,7 @@ function startTimer() {
     timer.textContent = timeRemaining;
     timeRemaining--;
   }, 1000);
+
   return;
 }
 
@@ -135,27 +131,30 @@ function currentAnswerElement(currentQuestion) {
     let currentAnswer = 0;
     currentAnswer < questionsObject.answers[currentQuestion].length;
     currentAnswer++
-  ) {
+  )
     var currentAnswerListItem = document.createElement("li");
-    var correctAnswerTempString =
-      questionsObject.answers[currentQuestion][currentAnswer];
+  var correctAnswerTempString =
+    questionsObject.answers[currentQuestion][currentAnswer];
 
-    if (
+  if (
+    questionsObject.answers[currentQuestion][currentAnswer].includes("correct:")
+  ) {
+    correctAnswerTempString =
       questionsObject.answers[currentQuestion][currentAnswer].includes(
         "correct:"
-      )
-    ) {
-      correctAnswerTempString =
-        questionsObject.answers[currentQuestion][currentAnswer].includes(
-          "correc:t"
-        );
-      currentAnswerListItem.id = "correct";
+      );
+    correctAnswerTempString = questionObj.answers[currentQuestionIndex][
+      answerIndex
+    ].substring(
+      8,
+      questionObj.answers[currentQuestionIndex][answerIndex].length
+    );
+    currentAnswerListItem.id = "correct";
 
-      currentAnswerListItem.textContent = correctAnswerTempString;
-      answerButtonLst.appendChild(currentAnswerListItem);
-    }
-    return;
+    currentAnswerListItem.textContent = correctAnswerTempString;
+    answerButtonLst.appendChild(currentAnswerListItem);
   }
+  return;
 }
 
 function nextQuestion() {
@@ -172,10 +171,10 @@ function endGame() {
   finishedGame = true;
   score = timeRemaining;
   timerP.style.display = "none";
-  timer.style.display = "none";
+  title.style.display = "none";
   answerButtonLst.innerHTML = "";
 
-  document.querySelector("#submit-submitHighscoreBtn").style.display = "block";
+  document.querySelector("#submit-highscore-section").style.display = "block";
   document.querySelector("#scoreSpan").textContent = score;
 
   return;
@@ -195,13 +194,13 @@ function locallyStoreData() {
   var arrayOfObjectstemp = [];
   var highscore = document.querySelector("input");
 
-  if (highscore.value != " || highscore.value != null") {
+  if (highscore.value != "" || highscore.value != null) {
     var storeObjectTemp = {
       scores: score,
-      name: highscore.value,
+      name: highscoreTextbox.value,
     };
 
-    if (window.localStorage.getItem("highscores" == null)) {
+    if (window.localStorage.getItem("highscores") == null) {
       arrayOfObjectstemp.push(storeObjectTemp);
       window.localStorage.setItem(
         "highscore",
@@ -212,7 +211,7 @@ function locallyStoreData() {
         window.localStorage.getItem("highscores")
       );
 
-      for (index = 0; index <= arrayOfObjectstemp.length; index++) {
+      for (let index = 0; index <= arrayOfObjectstemp.length; index++) {
         if (index == arrayOfObjectstemp.length) {
           arrayOfObjectstemp.push(storeObjectTemp);
           break;
@@ -239,9 +238,9 @@ function showHighscore() {
   startBtn.style.display = "none";
   document.querySelector("header").children[0].style.display = "none";
   document.querySelector("#instructions").style.display = "none";
-  document.querySelector("#submit-highscore").style.display = "none";
+  document.querySelector("#submit-highscore-section").style.display = "none";
 
-  document.querySelector("#display-highscore").style.display = "block";
+  document.querySelector("#display-highscore-section").style.display = "block";
 
   orderedTempList = document.querySelector("ol");
   orderedTempList.innerHTML = "";
@@ -253,7 +252,8 @@ function showHighscore() {
       newList.textContent =
         arrayOfObjectstemp[index].names +
         "-" +
-        orderedTempList.appendChild(newList);
+        arrayOfObjectstemp[index].scores;
+      orderedTempList.appendChild(newList);
     }
   } else {
     var newList = document.createElement("p");
