@@ -1,11 +1,11 @@
 * {
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
     --background-color: #1B473F;
     --text-color: #fff;
 }
 
-.header{
+header{
     display:flex;
     justify-content: space-between;
     align-items: center;

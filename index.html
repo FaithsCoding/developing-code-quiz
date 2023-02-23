@@ -1,69 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets/style.css">
-  </head>
 
-  <body>
-    <header>
-        <section class="header">
-          <button class="button" id="score_check">View Highscores</button>
-          <button class="button" id="clear_btn">Clear Highscores</button>
-        </section>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Quiz</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
 
-    <main>
-     <section class="intro_page" id="intro_page">
-        <div id="introduction">
-            <h1>Welcome to Coding Quiz Challenge</h1>
-             <p id="instruction"> Answer the following questions correctly in 60 seconds, there is a 10 second penalty for every wrong answer</p>
-            <button class="button" id="start_button">Start Quiz</button>
-        </div>
+<body>
+  <header>
+    <button class="button" id="score_check">View Highscores</button>
+    <button class="button" id="clear_btn">Clear Highscores</button>
+  </header>
+
+  <main>
+    <section class="intro_page" id="intro_page" id="introduction">
+      <h1>Welcome to Coding Quiz Challenge</h1>
+      <p id="instruction"> Answer the following questions correctly in 60 seconds, there is a 10 second penalty for
+        every wrong answer</p>
+      <button class="button" id="start_button">Start Quiz</button>
+
     </section>
 
 
     <section class="question_page" id="question_page">
       <p id="timer"> Time left: 60s</p>
-        <h2 id = "ask_question">Ask the question</h2>
-            <ul>
-            <li><button class ="choices button" id="answer_btn1" value="a">Answer1</button></li>
-            <li><button class ="choices button" id="answer_btn2" value="b">Answer2</button></li>
-            <li><button class ="choices button" id="answer_btn3" value="c">Answer3</button></li>
-            </ul>
+      <h2 id="ask_question">Ask the question</h2>
+      <ul>
+        <li><button class="choices button" id="answer_btn1" value="a">Answer1</button></li>
+        <li><button class="choices button" id="answer_btn2" value="b">Answer2</button></li>
+        <li><button class="choices button" id="answer_btn3" value="c">Answer3</button></li>
+      </ul>
 
-        <div id="check_line">
-        <p>Correct or Wrong</p>
-        </div>
-
+      <p id="check_line">Correct or Wrong</p>
     </section>
 
     <section class="submit_page" id="submit_page">
-         <h2 id="finish">Well Done!</h2>
-             <p id = "final_score">You scored </p>
-                <p>Enter initials</p>
-                <input id="initial">
-                <button class="button" id="submit_btn">Submit</button>
-      </section>
+      <h2 id="finish">Well Done!</h2>
+      <p id="final_score">You scored </p>
+      <p>Enter initials</p>
+      <input id="initial">
+      <button class="button" id="submit_btn">Submit</button>
+    </section>
 
-     <section class="highscore_page" id ="highscore_page">
-            <h2>High Scores</h2>
-            <div id="score_record"></div>
+    <section class="highscore_page" id="highscore_page">
+      <h2>High Scores</h2>
+      <p id="score_record"></p>
+      <button class="button" id="back_btn">Go back</button>
+    </section>
+  </main>
 
-            <div>
-                 <button class="button" id="back_btn">Go back</button>
-            </div>
-     </section>
-    </main>
+  <footer>
+    <p>This footer has been created with love by faithscoding &copy; 2023.</p>
+  </footer>
 
-    <footer>
-        <p>This footer has been created with love by faithscoding &copy; 2023.</p>
-    </footer>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/questions.js"></script>
 
-    <script src="assets/js/script.js"></script>
-
-  </body>
+</body>
 
 </html>
