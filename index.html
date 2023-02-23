@@ -10,20 +10,21 @@
 
 <body>
   <header>
+    <!--Buttons for high score interactions-->
     <button class="button" id="score_check">View Highscores</button>
     <button class="button" id="clear_btn">Clear Highscores</button>
   </header>
 
   <main>
+    <!-- into page which is linked with JS through ID's-->
     <section class="intro_page" id="intro_page" id="introduction">
       <h1>Welcome to Coding Quiz Challenge</h1>
       <p id="instruction"> Answer the following questions correctly in 60 seconds, there is a 10 second penalty for
         every wrong answer</p>
       <button class="button" id="start_button">Start Quiz</button>
-
     </section>
 
-
+    <!--Question page which is linked with JS through ID's, also allows JS to trigger the timer, questions & answers-->
     <section class="question_page" id="question_page">
       <p id="timer"> Time left: 60s</p>
       <h2 id="ask_question">Ask the question</h2>
@@ -32,10 +33,12 @@
         <li><button class="choices button" id="answer_btn2" value="b">Answer2</button></li>
         <li><button class="choices button" id="answer_btn3" value="c">Answer3</button></li>
       </ul>
-
+      <!--- Allows JS to check for right/wrong answers-->
       <p id="check_line">Correct or Wrong</p>
     </section>
 
+    <!--Allows JS to submit data to the local storage-->
+    <!-- Communicates with JS to get user data i.e scores-->
     <section class="submit_page" id="submit_page">
       <h2 id="finish">Well Done!</h2>
       <p id="final_score">You scored </p>
@@ -44,6 +47,7 @@
       <button class="button" id="submit_btn">Submit</button>
     </section>
 
+    <!-- Displays the highscore page when the game has ended, triggered by JS-->
     <section class="highscore_page" id="highscore_page">
       <h2>High Scores</h2>
       <p id="score_record"></p>
@@ -52,7 +56,7 @@
   </main>
 
   <footer>
-    <p>This footer has been created with love by faithscoding &copy; 2023.</p>
+    <p>This quiz has been created with love by faithscoding &copy; 2023.</p>
   </footer>
 
   <script src="assets/js/script.js"></script>

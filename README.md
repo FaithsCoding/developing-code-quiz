@@ -2,7 +2,6 @@
 
 This is for the week 4 assignment
 
-
 ## User Story
 
 ```
@@ -28,6 +27,7 @@ THEN I can save my initials and my score
 ```
 
 ## Actual Behaviour
+
 ```
 WHEN you click 'start quiz'
 THEN you are presented with a question with 3 answers,
@@ -43,8 +43,9 @@ THEN time will run out and 'TIME IS UP! You scored 0'.
 ```
 
 ## Links for the project
+
 ```
-GIF: ![Code Quiz](https://user-images.githubusercontent.com/122907573/220906028-0e5eae80-0918-4cc5-8d67-85dabc328ec7.gif)
+GIF: ![Code Quiz (1)](https://user-images.githubusercontent.com/122907573/221030675-9491f113-dafb-44e0-a643-a91b6a558fd9.gif)
 
 [Link to deployed website](https://faithscoding.github.io/developing-code-quiz/)
 

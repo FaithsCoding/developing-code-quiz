@@ -1,3 +1,8 @@
+//The questions are in a separate file to the other JS code for accessibility and readability. This makes it easier to add/take away questions from the quiz and allows for easier future development.
+
+//VARIABLES
+// Variables that are solely question related
+
 var secondsLeft = 60;
 var questionNumber = 0;
 var totalScore = 0;
@@ -15,9 +20,11 @@ var reactButtons = document.querySelectorAll(".choices");
 var answerBtn1 = document.querySelector("#answer_btn1");
 var answerBtn2 = document.querySelector("#answer_btn2");
 var answerBtn3 = document.querySelector("#answer_btn3");
+
+//These are questions, answers and correct reasons
 var questionSource = [
   {
-    question: "Question 1 : What is HTML an anagram for?",
+    question: "Question 1 : What is HTML an abbreviation for?",
     choices: [
       "a.Headertext Management Language",
       "b.Hypertext Markup Language",
@@ -61,11 +68,14 @@ var questionSource = [
     choices: [
       "a.In your terminal",
       "b.In the application tab of your developer tools",
-      "c.In your GitHub",
+      "c.In your GitHub repo",
     ],
     answer: "b",
   },
 ];
+
+//FUNCTIONS
+//This begins the countdown
 
 function countdown() {
   var timerInterval = setInterval(function () {
@@ -84,6 +94,7 @@ function countdown() {
   }, 1000);
 }
 
+//This functiion allows the quiz to start
 function startQuiz() {
   introPage.style.display = "none";
   questionPage.style.display = "block";
@@ -92,6 +103,7 @@ function startQuiz() {
   showQuestion(questionNumber);
 }
 
+//This function shows the questions when the quiz has started
 function showQuestion(n) {
   askQuestion.textContent = questionSource[n].question;
   answerBtn1.textContent = questionSource[n].choices[0];
@@ -100,6 +112,7 @@ function showQuestion(n) {
   questionNumber = n;
 }
 
+//This function checks the answers and then tells the user whether their answer was correct or if it was wrong was the right one was
 function checkAnswer(event) {
   event.preventDefault();
   checkLine.style.display = "block";
@@ -113,9 +126,7 @@ function checkAnswer(event) {
   } else {
     secondsLeft = secondsLeft - 10;
     checkLine.textContent =
-      "Wrong! The correct answer is " +
-      questionSource[questionNumber].answer +
-      " .";
+      "Wrong! The correct answer is " + questionSource[questionNumber].answer;
   }
 
   if (questionNumber < questionSource.length - 1) {
@@ -126,6 +137,7 @@ function checkAnswer(event) {
   questionCount++;
 }
 
+//This functions shows the user what they scored, it will automatically show 0 if the timer runs out and they haven't answered any questions or if they scored 0
 function gameOver() {
   questionPage.style.display = "none";
   scoreBoard.style.display = "block";
@@ -134,6 +146,7 @@ function gameOver() {
   timeLeft.style.display = "none";
 }
 
+//This functions retrieves the user data from the local storage to be able to preview the highscores when the button is clicked
 function getScore() {
   var currentList = localStorage.getItem("ScoreList");
   if (currentList !== null) {
@@ -145,6 +158,8 @@ function getScore() {
   return freshList;
 }
 
+//EVENT
+//This event triggers the start of the quiz, timer and therefore begins the process of questions appearing etc
 startBtn.addEventListener("click", startQuiz);
 reactButtons.forEach(function (click) {
   click.addEventListener("click", checkAnswer);

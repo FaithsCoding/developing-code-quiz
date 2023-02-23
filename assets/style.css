@@ -1,3 +1,4 @@
+/* This is a global application of CSS which applies too all of the below unless otherwise specifided */
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
@@ -5,6 +6,7 @@
     --text-color: #fff;
 }
 
+/* This is asking anything in the header to have the display of flex with space inbetween. Without this CSS the two buttons in the header would automatically sit together on the left. */
 header {
     display: flex;
     justify-content: space-between;
@@ -12,6 +14,7 @@ header {
     color: var(--text-color);
 }
 
+/* For neatness, we have asked that all the elements within body are displayed in columns with the variable colors being applied to avoid repetition. This would also be applied to main is is a child of body */
 body {
     display: flex;
     flex-direction: column;
@@ -21,11 +24,7 @@ body {
     margin: 10px;
 }
 
-main {
-    text-align: center;
-    justify-content: center;
-}
-
+/* This CSS is being applied to the questions and answers */
 ul {
     display: flex;
     flex-direction: row;
@@ -38,6 +37,7 @@ li {
 }
 
 
+/* These are adding display properties to the questions and answers */
 .question_page,
 .submit_page,
 .highscore_page,
@@ -45,10 +45,12 @@ li {
     display: none;
 }
 
+/* I wanted some more space between the questions and the answers therefore added a margin for simplicity */
 h2 {
     margin-bottom: 50px;
 }
 
+/* The buttons have had a curve/radius added as well as a hover to make it clear which button the user is pressing. */
 .button {
     background: white;
     border-radius: 20px;
@@ -62,12 +64,15 @@ h2 {
     background-color: var(--background-color);
 }
 
+/* The inputs default was offcenter in comparison to the other elements therefore I used the input tag to alter this */
+
 input {
     display: inline;
     align-items: center;
     margin-left: 25px;
 }
 
+/* i fixed the footer to the bottom of the page and aligned it central with the rest of the elements. */
 footer {
     text-align: center;
     position: fixed;
@@ -75,6 +80,8 @@ footer {
     width: 100%;
 }
 
+
+/* The media queries allows the quiz to be accessible at 2 sizes, however it does also work on smaller devices and will change color accordingly. */
 
 @media only screen and (max-width: 960px) {
 
