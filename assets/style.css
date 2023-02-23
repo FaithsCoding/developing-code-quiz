@@ -1,12 +1,12 @@
 * {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
     --background-color: #1B473F;
     --text-color: #fff;
 }
 
-header{
-    display:flex;
+header {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--text-color);
@@ -18,83 +18,80 @@ body {
     justify-content: center;
     background-color: var(--background-color);
     color: var(--text-color);
-  }
+    margin: 10px;
+}
 
 main {
     text-align: center;
     justify-content: center;
-    flex: 1 0 auto;
-    margin-left:200px;
-    margin-right:200px;
 }
 
-.question_page {
-    display:flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-/*hide the bullet points from listings*/
 ul {
-
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    flex-direction: column;
-    align-items: baseline;
-    padding-left: 50px;
-   }
+}
 
 li {
     margin-bottom: 10px;
     list-style: none;
 }
 
-/*display only the intro page and hide the rest sections*/
-.question_page, .submit_page, .highscore_page, #check_line {
-    display:none;
+
+.question_page,
+.submit_page,
+.highscore_page,
+#check_line {
+    display: none;
 }
 
-.button{
-    background:white;
-    border-radius: 3px;
-    padding: 10px;
+h2 {
+    margin-bottom: 50px;
+}
+
+.button {
+    background: white;
+    border-radius: 20px;
+    padding: 12px;
     cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-.button:hover{
-  
-    background-color:rgb(205, 245, 247);
-  
+    margin-bottom: 20px;
+
+}
+
+.button:hover {
+    background-color: var(--background-color);
+}
+
+input {
+    display: inline;
+    align-items: center;
+    margin-left: 25px;
 }
 
 footer {
     text-align: center;
     position: fixed;
     bottom: 0;
-    left: 0;
     width: 100%;
 }
 
-footer a {
-    color: var(--text-color);
-}
-  
+
 @media only screen and (max-width: 960px) {
 
     main {
-        margin-left:50px;
-        margin-right:50px;
+        margin-left: 50px;
+        margin-right: 50px;
     }
-  }
+}
 
 @media only screen and (max-width: 520px) {
 
     body {
-      font-size: 130%;
+        font-size: 130%;
     }
+
     main {
-        margin-left:12px;
-        margin-right:12px;
+        margin-left: 12px;
+        margin-right: 12px;
     }
 }

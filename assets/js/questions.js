@@ -1,12 +1,11 @@
-var welcome = document.querySelector("#introduction");
-
-var introPage = document.querySelector("#intro_page");
-var timeLeft = document.getElementById("timer");
-
 var secondsLeft = 60;
 var questionNumber = 0;
 var totalScore = 0;
 var questionCount = 1;
+
+var welcome = document.querySelector("#introduction");
+var introPage = document.querySelector("#intro_page");
+var timeLeft = document.getElementById("timer");
 
 var questionPage = document.querySelector("#question_page");
 var askQuestion = document.querySelector("#ask_question");
